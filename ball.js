@@ -6,18 +6,24 @@ class ball{
             friction:0.5,
             density:1.2
     }
-this.ball=Bodies.circle(200,100,20,options)
-World.add(world,this.ball);
-//this.image-loadImage("")
-    }
+    this.x=x;
+    this.y=y;
+	this.r=r
+this.body=Bodies.circle(this.x,this.y,this.r/2,options)
+World.add(world,this.body);
 
+    }
+    
 display(){
-    fill("red");
-    push();
-    ellipseMode(RADIUS);
-    ellipse(75,625,20,20);
    
-    pop();
+    var pos=this.body.position;
+
+    push()
+    translate(pos.x,pos.y);   
+    rectMode(CENTER);
+    fill("red")
+    ellipse(0,0,this.r,this.r);
+    pop()
   }
 
 
